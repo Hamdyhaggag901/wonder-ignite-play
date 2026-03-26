@@ -13,12 +13,27 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['"Cormorant Garamond"', 'serif'],
+        body: ['"Jost"', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        sand: "hsl(var(--sand))",
+        champagne: "hsl(var(--champagne))",
+        beige: "hsl(var(--beige))",
+        gold: "hsl(var(--gold))",
+        "gold-light": "hsl(var(--gold-light))",
+        black: "hsl(var(--black))",
+        charcoal: "hsl(var(--charcoal))",
+        white: "hsl(var(--white))",
+        "off-white": "hsl(var(--off-white))",
+        "text-dark": "hsl(var(--text-dark))",
+        "text-muted": "hsl(var(--text-muted))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -65,25 +80,22 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(24px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fade-up 0.6s ease-out forwards",
       },
     },
   },
