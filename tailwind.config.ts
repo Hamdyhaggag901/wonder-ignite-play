@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         heading: ['"Cormorant Garamond"', 'serif'],
-        body: ['"Jost"', 'sans-serif'],
+        body: ['"DM Sans"', '"Jost"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -34,6 +34,10 @@ export default {
         "off-white": "hsl(var(--off-white))",
         "text-dark": "hsl(var(--text-dark))",
         "text-muted": "hsl(var(--text-muted))",
+        midnight: "hsl(var(--midnight))",
+        "raw-sand": "hsl(var(--raw-sand))",
+        "warm-white": "hsl(var(--warm-white))",
+        papyrus: "hsl(var(--papyrus))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
