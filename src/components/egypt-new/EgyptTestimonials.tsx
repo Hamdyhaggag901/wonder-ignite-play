@@ -1,61 +1,72 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import FadeInSection from "@/components/FadeInSection";
 
 const testimonials = [
   {
-    text: "I've done A&K. I've done Abercrombie. Mateego is different. I don't know how to explain it — it felt like Egypt wanted us there.",
-    author: "Margaret H.",
-    location: "New York",
+    quote: "I've done A&K. I've done Abercrombie. Mateego is different. I don't know how to explain it — it felt like Egypt wanted us there.",
+    name: "Margaret H.",
+    detail: "New York · 10-Day Private Journey",
   },
   {
-    text: "Our guide knew the guards by name. We went places that aren't in any book.",
-    author: "David & Carol R.",
-    location: "San Francisco",
+    quote: "Our guide knew the guards by name. We went places that aren't in any book. My husband said it was the best trip of his life — and he's been everywhere.",
+    name: "David & Carol R.",
+    detail: "San Francisco · Nile & Abu Simbel",
   },
   {
-    text: "We've traveled to 40+ countries. Egypt with Mateego was the first time a trip made us cry — from beauty, not frustration.",
-    author: "James T.",
-    location: "Chicago",
+    quote: "The difference is that these people actually live in Egypt. You can feel it in every recommendation, every hidden spot, every meal they chose for us.",
+    name: "James W.",
+    detail: "Chicago · Cairo & Luxor",
   },
 ];
 
-const EgyptTestimonials = () => (
-  <FadeInSection>
-    <section className="py-20 md:py-32 bg-warm-white">
-      <div className="section-container max-w-4xl mx-auto">
-        <span className="label-caps block mb-4 text-center">Living Proof</span>
-        <h2 className="font-heading text-[32px] md:text-[44px] text-midnight font-light leading-tight mb-16 text-center">
-          Don't take our word for it.
-        </h2>
+const EgyptTestimonials = () => {
+  const [idx, setIdx] = useState(0);
+  const t = testimonials[idx];
 
-        <div className="space-y-10">
-          {testimonials.map((t, i) => (
+  return (
+    <FadeInSection>
+      <section className="py-20 md:py-32 bg-deep-sand text-warm-white">
+        <div className="section-container text-center max-w-3xl mx-auto">
+          <span className="font-heading text-[80px] text-gold-accent/30 leading-none block mb-4">"</span>
+          <AnimatePresence mode="wait">
             <motion.div
-              key={i}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`relative bg-papyrus p-8 md:p-10 ${
-                i % 2 === 0 ? "md:ml-0 md:mr-16" : "md:ml-16 md:mr-0"
-              }`}
-              style={{
-                borderLeft: i % 2 === 0 ? "3px solid hsl(37 42% 60%)" : "none",
-                borderRight: i % 2 !== 0 ? "3px solid hsl(37 42% 60%)" : "none",
-              }}
+              key={idx}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4 }}
             >
-              <p className="font-heading text-[18px] md:text-[22px] text-midnight font-light leading-[1.7] italic mb-6">
-                "{t.text}"
+              <p className="font-heading text-[22px] md:text-[30px] italic font-light leading-snug mb-8">
+                {t.quote}
               </p>
-              <p className="font-body text-[12px] uppercase tracking-[0.15em] text-text-muted">
-                — {t.author}, {t.location}
-              </p>
+              <div className="flex items-center justify-center gap-1 mb-2">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span key={i} className="text-gold-accent text-sm">★</span>
+                ))}
+              </div>
+              <p className="font-body text-[14px] font-medium text-warm-white/80">{t.name}</p>
+              <p className="font-body text-[12px] text-warm-white/40 font-light">{t.detail}</p>
             </motion.div>
-          ))}
+          </AnimatePresence>
+          <div className="flex justify-center gap-2 mt-10">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  idx === i ? "bg-gold-accent w-6" : "bg-warm-white/20 hover:bg-warm-white/40"
+                }`}
+              />
+            ))}
+          </div>
+          <p className="font-body text-[12px] uppercase tracking-[0.15em] text-warm-white/30 mt-10">
+            Trusted by 500+ American travelers since 2012
+          </p>
         </div>
-      </div>
-    </section>
-  </FadeInSection>
-);
+      </section>
+    </FadeInSection>
+  );
+};
 
 export default EgyptTestimonials;

@@ -1,75 +1,71 @@
-import { motion } from "framer-motion";
 import FadeInSection from "@/components/FadeInSection";
 
 const seasons = [
   {
-    label: "October – November",
-    title: "Our favorite months",
-    desc: "The crowds haven't arrived yet, the light is extraordinary, and the desert nights are cool enough to sleep without AC. If we could only visit Egypt once a year, we'd choose October.",
-    temp: "28–32°C / 82–90°F",
-    tag: "Best Overall",
+    icon: "☀️",
+    title: "Peak Season",
+    period: "October – April",
+    desc: "Clear skies, comfortable temperatures, perfect for temples and tombs. This is when Egypt is at its most magical — and most popular. Book early.",
   },
   {
-    label: "December – February",
-    title: "Peak season, done right",
-    desc: "Yes, it's busier. But we know how to avoid the crowds — early mornings, private access, routes nobody else takes. The weather is perfect for exploring all day.",
-    temp: "18–24°C / 64–75°F",
-    tag: "Most Popular",
+    icon: "🌊",
+    title: "Summer",
+    period: "June – August",
+    desc: "Too hot for the Valley of the Kings, but ideal for Red Sea diving. Fewer crowds, lower prices, and the kind of heat that makes evening Nile cruises feel divine.",
   },
   {
-    label: "March – April",
-    title: "The shoulder sweet spot",
-    desc: "Warm but not hot. Quiet but not empty. The Nile is particularly beautiful, and spring flowers transform the desert edges. A well-kept secret.",
-    temp: "24–30°C / 75–86°F",
-    tag: "Hidden Gem",
+    icon: "🌤",
+    title: "Shoulder Season",
+    period: "May & September",
+    desc: "Our favorite secret. Warm but manageable. The crowds have thinned. Prices drop. You get the Egypt we fell in love with — unhurried and intimate.",
   },
 ];
 
 const EgyptWhenToGo = () => (
   <FadeInSection>
-    <section className="py-20 md:py-32 bg-warm-white">
+    <section id="when" className="py-20 md:py-32 bg-warm-cream scroll-mt-16">
       <div className="section-container">
-        <span className="label-caps block mb-4">When to Go</span>
-        <div className="max-w-2xl mb-16">
-          <h2 className="font-heading text-[32px] md:text-[48px] text-midnight font-light leading-tight mb-6">
-            Advice from someone
-            <br />
-            who actually lives here
-          </h2>
-          <p className="font-heading text-[18px] md:text-[22px] text-midnight/70 font-light italic leading-[1.7]">
-            "October is our favorite month in Egypt. The crowds haven't arrived yet,
-            the light is extraordinary, and the desert nights are cool enough to sleep
-            without AC. Here's what we'd tell a close friend planning their trip…"
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {seasons.map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-papyrus p-8 relative"
-            >
-              <span className="font-body text-[10px] uppercase tracking-[0.2em] text-raw-sand bg-midnight/5 px-3 py-1 inline-block mb-4">
-                {s.tag}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+          <div>
+            <span className="label-caps block mb-4">When to Visit</span>
+            <h2 className="font-heading text-[34px] md:text-[48px] text-deep-sand font-light italic leading-tight mb-6">
+              When to Visit Egypt
+            </h2>
+            <p className="font-body text-[15px] text-charcoal-dark/60 font-light leading-[1.9] mb-10">
+              October is our favorite month in Egypt. The crowds haven't arrived yet, the light is
+              extraordinary, and the desert nights are cool enough to sleep without AC. Here's what
+              we'd tell a close friend planning their trip.
+            </p>
+            <div className="space-y-6">
+              {seasons.map((s, i) => (
+                <div key={i} className="bg-white p-6 border-l-2 border-gold-accent/30">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-lg">{s.icon}</span>
+                    <h4 className="font-heading text-[20px] text-deep-sand font-light italic">{s.title}</h4>
+                  </div>
+                  <p className="font-body text-[11px] uppercase tracking-[0.15em] text-gold-accent mb-2">{s.period}</p>
+                  <p className="font-body text-[13px] text-charcoal-dark/50 font-light leading-relaxed">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative overflow-hidden aspect-[3/4] md:aspect-auto">
+            <img
+              src="https://images.unsplash.com/photo-1539768942893-daf53e448371?w=800&q=80"
+              alt="Egypt at golden hour"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-deep-sand/80 via-transparent to-transparent" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <p className="font-heading text-[22px] text-warm-white italic font-light mb-3">
+                Read our complete guide
+              </p>
+              <span className="font-body text-[11px] uppercase tracking-[0.15em] text-gold-accent cursor-pointer">
+                Best Time to Visit Egypt →
               </span>
-              <p className="font-body text-[12px] uppercase tracking-[0.15em] text-text-muted mb-2">
-                {s.label}
-              </p>
-              <h3 className="font-heading text-[22px] text-midnight font-light mb-3">
-                {s.title}
-              </h3>
-              <p className="font-body text-[14px] text-text-muted font-light leading-relaxed mb-4">
-                {s.desc}
-              </p>
-              <p className="font-body text-[12px] text-midnight/50 font-light">
-                {s.temp}
-              </p>
-            </motion.div>
-          ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

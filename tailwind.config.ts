@@ -38,6 +38,10 @@ export default {
         "raw-sand": "hsl(var(--raw-sand))",
         "warm-white": "hsl(var(--warm-white))",
         papyrus: "hsl(var(--papyrus))",
+        "deep-sand": "hsl(var(--deep-sand))",
+        "gold-accent": "hsl(var(--gold-accent))",
+        "warm-cream": "hsl(var(--warm-cream))",
+        "charcoal-dark": "hsl(var(--charcoal-dark))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
