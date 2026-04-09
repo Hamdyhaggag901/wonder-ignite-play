@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import ExpertModal from "@/components/ExpertModal";
 
 const navLinks = [
-  { to: "/destinations", label: "Destinations" },
+  { to: "/destinations/egypt", label: "Destinations" },
   { to: "/journeys", label: "Journeys" },
   { to: "/experiences", label: "Experiences" },
   { to: "/about", label: "About" },
