@@ -7,7 +7,7 @@ const EgyptHero = () => (
       className="absolute inset-0 bg-cover bg-center"
       style={{
         backgroundImage:
-          "url(https://images.unsplash.com/photo-1539768942893-daf53e448371?w=1800&q=80)",
+          "url(https://iluxuryegypt.com/api/assets/uploads/1bfd6d3f-6529-4454-a29a-d790e638b745.jpg)",
       }}
     />
     <div
