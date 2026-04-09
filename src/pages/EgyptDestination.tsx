@@ -17,6 +17,15 @@ const EgyptDestination = () => {
   return (
     <div className="scroll-smooth">
       <EgyptHero />
+      <section
+        className="relative h-[50vh] md:h-[60vh] bg-cover bg-center bg-fixed"
+        style={{
+          backgroundImage:
+            "url(https://iluxuryegypt.com/api/assets/uploads/8994e48c-b7ec-4fed-846f-e2fe7a4bd8ed.webp)",
+        }}
+      >
+        <div className="absolute inset-0 bg-deep-sand/30" />
+      </section>
       <EgyptSubNav />
       <EgyptOverview />
       <EgyptJourneys />
